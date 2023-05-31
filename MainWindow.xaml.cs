@@ -75,7 +75,7 @@ namespace PR4_Finances
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Datepicker.SelectedDate == null) Datepicker.SelectedDate = DateTime.Now;
+            if (Datepicker.SelectedDate == null) Datepicker.SelectedDate = DateTime.Now.Date;
 
 			Finance.Finances.Add(new Finance(Title.Text, comboBox.Text, NumBox.Value, Datepicker.SelectedDate.Value));
             MessageBox.Show($"{Title.Text}, {comboBox.Text}, {NumBox.Value}, {Datepicker.SelectedDate.Value}");
@@ -95,7 +95,7 @@ namespace PR4_Finances
 
 		private void Datepicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show(Datepicker.SelectedDate.Value.ToString());
+            MessageBox.Show(Datepicker.SelectedDate.Value.Date.ToString());
 			PopulateDataGridByDay(Datepicker.SelectedDate.Value);
 		}
     }
